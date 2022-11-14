@@ -27,7 +27,8 @@ SECRET_KEY = (
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+]
 
 
 # Application definition
@@ -133,5 +134,5 @@ import django_heroku
 django_heroku.settings(locals())
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://hemant-to-do.herokuapp.com'
+    'https://simple-gaud-demo.herokuapp.com/'
 ]
