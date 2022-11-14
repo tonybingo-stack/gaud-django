@@ -66,7 +66,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
-        },
+        },        
     },
 ]
 
@@ -135,3 +135,5 @@ django_heroku.settings(locals())
 # CSRF_TRUSTED_ORIGINS = [
 #     'https://simple-gaud-demo.herokuapp.com/'
 # ]
+
+CSRF_COOKIE_DOMAIN = []
