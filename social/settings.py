@@ -123,6 +123,8 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 # Default primary key field type
+
+
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -131,6 +133,5 @@ import django_heroku
 django_heroku.settings(locals())
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://hemant-to-do.herokuapp.com', 
-    "127.0.0.1",
+    'https://hemant-to-do.herokuapp.com'
 ]
