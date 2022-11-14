@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+{% load static %}
 <div class="column">
-    {% for followed in user.profile.follows.all %}
+
+
+    <!-- {% for followed in user.profile.follows.all %}
         {% for dweet in followed.user.dweets.all %}
             <div class="box">
                 {{dweet.body}} 
@@ -12,7 +14,29 @@
                 </span>
             </div>
         {% endfor %}
-    {% endfor %}
+    {% endfor %} -->
+
+    <div class="columns">
+        <div class="column">
+            <div class="box ">
+                <figure class="image is-256x256">
+                    <img src="{% static 'input.png' %}">
+                </figure>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box ">
+                <button class="button is-success is-rounded">Generate</button>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box ">
+                <figure class="image is-256x256">
+                    <img src="{% static 'result.png' %}">
+                </figure>
+            </div>
+        </div>
+    </div>
 
 </div>
 
