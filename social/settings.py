@@ -132,8 +132,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 import django_heroku 
 django_heroku.settings(locals())
 
-# CSRF_TRUSTED_ORIGINS = [
-#     'https://simple-gaud-demo.herokuapp.com/'
-# ]
+CSRF_TRUSTED_ORIGINS = [
+    'https://simple-gaud-demo.herokuapp.com'
+]
 
 CSRF_COOKIE_DOMAIN = []
