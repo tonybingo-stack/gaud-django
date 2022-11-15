@@ -27,7 +27,7 @@ SECRET_KEY = (
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,18 +39,31 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # CORS
+    'corsheaders',
+    # 'dwitter.apps.DwitterConfig',# Rest API
+    'rest_framework',# Rest API
     "dwitter",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    # CORS
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    
 ]
+# Cors setting...
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8080',
+)
+
 
 ROOT_URLCONF = "social.urls"
 
@@ -132,8 +145,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 import django_heroku 
 django_heroku.settings(locals())
 
-# CSRF_TRUSTED_ORIGINS = [
-#     'https://simple-gaud-demo.herokuapp.com'
-# ]
+CSRF_TRUSTED_ORIGINS = [
+    'https://simple-gaud-demo.herokuapp.com',
+    'http://localhost:8080',
+]
 
 # CSRF_COOKIE_DOMAIN = []

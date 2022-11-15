@@ -3,8 +3,6 @@
 {% block content %}
 {% load static %}
 <div class="column">
-
-
     <!-- {% for followed in user.profile.follows.all %}
         {% for dweet in followed.user.dweets.all %}
             <div class="box">
@@ -15,29 +13,55 @@
             </div>
         {% endfor %}
     {% endfor %} -->
-
-    <div class="columns">
-        <div class="column">
-            <div class="box ">
-                <figure class="image is-256x256">
-                    <img src="{% static 'input.png' %}">
-                </figure>
+    <div class="container has-background-primary-light p-5">
+        <div class="columns">
+            <div class="column">
+                <div class="box has-background-warning-dark">
+                    <figure class="image is-256x256">
+                        <img src="{% static 'images/input.png' %}" id="input">
+                    </figure>
+                </div>
             </div>
-        </div>
-        <div class="column">
-            <div class="box ">
-                <button class="button is-success is-rounded">Generate</button>
+            <div class="column is-align-self-center has-text-centered">
+                <button class="button is-success is-rounded" onclick="generate()">Generate</button>
             </div>
-        </div>
-        <div class="column">
-            <div class="box ">
-                <figure class="image is-256x256">
-                    <img src="{% static 'result.png' %}">
-                </figure>
+            <div class="column">
+                <div class="box has-background-warning-dark">
+                    <figure class="image is-256x256" id="result">
+                        <img src="{% static 'images/result.png' %}" style="opacity:0">
+                    </figure>
+                </div>
             </div>
         </div>
     </div>
+    <script>
+        var url_spinner = "{% static 'images/spinner.gif' %}";
 
+        function generate() {
+            var img = document.createElement("img");
+            img.src = url_spinner;
+            img.height = 256;
+            img.width = 256;
+            //optionally set a css class on the image
+            var class_name = "foo";
+            img.setAttribute("class", class_name);
+            const element = document.getElementById("result");
+            element.replaceChild(img, element.childNodes[1]);
+
+            fetch('http://localhost:8000/api/image')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    if(data.imageURL){
+                        img.src = data.imageURL;
+                        element.replaceChild(img, element.childNodes[1]);
+                    }
+
+                }); //Hello World
+
+
+        }
+    </script>
 </div>
 
 {% endblock content %}

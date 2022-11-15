@@ -18,7 +18,10 @@ class Dweet(models.Model):
             f"{self.body[:30]}..."
         )
 
+class ImageProcess(models.Model):
+    imageUrl = models.CharField(max_length=200, blank=False, default='')
 
+    
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     follows = models.ManyToManyField(
