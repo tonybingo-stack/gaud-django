@@ -151,4 +151,5 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 # CSRF_COOKIE_DOMAIN = []
-STATICFILES_STORAGE="whitenoise.storage.CompressedStaticFileStorage"
+# STATICFILES_STORAGE="whitenoise.storage.CompressedStaticFileStorage"
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
