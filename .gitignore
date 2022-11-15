@@ -3,6 +3,7 @@
 
 ### Django ###
 generator.h5
+/staticfiles
 *.log
 *.pot
 *.pyc

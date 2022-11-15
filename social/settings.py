@@ -151,3 +151,4 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 # CSRF_COOKIE_DOMAIN = []
+STATICFILES_STORAGE="whitenoise.storage.CompressedStaticFileStorage"
