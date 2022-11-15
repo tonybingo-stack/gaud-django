@@ -54,6 +54,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     
@@ -151,6 +152,4 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 # CSRF_COOKIE_DOMAIN = []
-# STATICFILES_STORAGE="whitenoise.storage.CompressedStaticFileStorage"
-import os
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+STATICFILES_STORAGE="whitenoise.storage.CompressedStaticFileStorage"
