@@ -59,12 +59,18 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     
 ]
+# DATA_UPLOAD_MAX_MEMORY_SIZE = 20_000_000
 # Cors setting...
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8080',
 )
-
+CORS_ALLOW_HEADERS = (
+        'x-requested-with',
+        'content-type',
+        'accept',
+        'origin',
+)
 
 ROOT_URLCONF = "social.urls"
 

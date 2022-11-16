@@ -13,12 +13,64 @@
             </div>
         {% endfor %}
     {% endfor %} -->
-    <div class="container has-background-primary-light p-5">
+    <!-- <div class="container has-background-primary-light p-5 mb-4">
+        <div id="toolContainer" class="flex flex-space-between">
+            <button class="flex line-height" onClick="usePencil()"><img src="{% static 'images/pencil.png' %}" /></button>
+            <button class="flex  -height" onClick="useEraser()"><img src="{% static 'images/eraser.png' %}" /></button>
+        </div>
+        <div class="flex">
+            <div>
+                <div id="canvasContainer"></div>
+                <div id="btnContainer" class="flex flex-space-between">
+                    <button onClick="clearCanvas()">Clear</button>
+                    <button onClick="getRandomOutput()">Random</button>
+                </div>
+            </div>
+            <div id="transferContainer">
+                <img src="{% static 'images/pokeball.png' %}" class="pokeball" /><br>
+                <button id="transferBtn" class="btn" onClick="transfer()">Transfer</button>
+            </div>
+            <div id="output"></div>
+        </div>
+        <script src="{% static 'js/index.js' %}"></script>
+    </div> -->
+
+    <div class="container has-background-primary-light p-5 mb-4">
+        <div class="columns">
+            <div class="column">
+                <div  class="flex flex-space-between">
+                    <button class="flex line-height" onClick="usePencil()"><img src="{% static 'images/pencil.png' %}" /></button>
+                    <button class="flex  -height" onClick="useEraser()"><img src="{% static 'images/eraser.png' %}" /></button>
+                </div>
+                <div class="box has-background-warning-dark has-text-centered">
+                    <figure id="canvasContainer" class="image is-256x256">
+                    </figure>
+                </div>
+                <div class="flex flex-space-between">
+                    <button onClick="clearCanvas()">Clear</button>
+                    <button onClick="getRandomOutput()">Random</button>
+                </div>
+            </div>
+            <div class="column is-align-self-center has-text-centered">
+                <button class="button is-success is-rounded" onclick="transfer()">Generate</button>
+            </div>
+            <div class="column">
+                <div class="box has-background-warning-dark">
+                    <figure id="output" class="image is-256x256">
+                    </figure>
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'js/index.js' %}"></script>
+    </div>
+
+    <!-- image to image -->
+    <!-- <div class="container has-background-primary-light p-5">
         <div class="columns">
             <div class="column">
                 <div class="box has-background-warning-dark">
                     <figure class="image is-256x256">
-                        <img src="{% static 'images/input.png' %}" id="input">
+                        <img src="{% static 'images/input1.png' %}" id="input">
                     </figure>
                 </div>
             </div>
@@ -28,40 +80,12 @@
             <div class="column">
                 <div class="box has-background-warning-dark">
                     <figure class="image is-256x256" id="result">
-                        <img src="{% static 'images/result.png' %}" style="opacity:0">
+                        <img src="{% static 'images/result1.png' %}" style="opacity:0">
                     </figure>
                 </div>
             </div>
         </div>
-    </div>
-    <script>
-        var url_spinner = "{% static 'images/spinner.gif' %}";
-
-        function generate() {
-            var img = document.createElement("img");
-            img.src = url_spinner;
-            img.height = 256;
-            img.width = 256;
-            //optionally set a css class on the image
-            var class_name = "foo";
-            img.setAttribute("class", class_name);
-            const element = document.getElementById("result");
-            element.replaceChild(img, element.childNodes[1]);
-
-            fetch('http://localhost:8000/api/image')
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    if(data.imageURL){
-                        img.src = data.imageURL;
-                        element.replaceChild(img, element.childNodes[1]);
-                    }
-
-                }); //Hello World
-
-
-        }
-    </script>
+    </div> -->
 </div>
 
 {% endblock content %}
