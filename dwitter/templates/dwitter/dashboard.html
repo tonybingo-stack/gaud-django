@@ -2,90 +2,53 @@
 
 {% block content %}
 {% load static %}
-<div class="column">
-    <!-- {% for followed in user.profile.follows.all %}
-        {% for dweet in followed.user.dweets.all %}
-            <div class="box">
-                {{dweet.body}} 
-                <span class="is-small has-text-grey-light">
-                    ({{ dweet.created_at }} by {{ dweet.user.username }}
-                </span>
-            </div>
-        {% endfor %}
-    {% endfor %} -->
-    <!-- <div class="container has-background-primary-light p-5 mb-4">
-        <div id="toolContainer" class="flex flex-space-between">
-            <button class="flex line-height" onClick="usePencil()"><img src="{% static 'images/pencil.png' %}" /></button>
-            <button class="flex  -height" onClick="useEraser()"><img src="{% static 'images/eraser.png' %}" /></button>
-        </div>
-        <div class="flex">
-            <div>
-                <div id="canvasContainer"></div>
-                <div id="btnContainer" class="flex flex-space-between">
-                    <button onClick="clearCanvas()">Clear</button>
-                    <button onClick="getRandomOutput()">Random</button>
-                </div>
-            </div>
-            <div id="transferContainer">
-                <img src="{% static 'images/pokeball.png' %}" class="pokeball" /><br>
-                <button id="transferBtn" class="btn" onClick="transfer()">Transfer</button>
-            </div>
-            <div id="output"></div>
-        </div>
-        <script src="{% static 'js/index.js' %}"></script>
-    </div> -->
 
-    <div class="container has-background-primary-light p-5 mb-4">
-        <div class="columns">
-            <div class="column">
-                <div  class="flex flex-space-between">
-                    <button class="flex line-height" onClick="usePencil()"><img src="{% static 'images/pencil.png' %}" /></button>
-                    <button class="flex  -height" onClick="useEraser()"><img src="{% static 'images/eraser.png' %}" /></button>
-                </div>
-                <div class="box has-background-warning-dark has-text-centered">
-                    <figure id="canvasContainer" class="image is-256x256">
-                    </figure>
-                </div>
-                <div class="flex flex-space-between">
-                    <button onClick="clearCanvas()">Clear</button>
-                    <button onClick="getRandomOutput()">Random</button>
-                </div>
+<div class="container has-background-primary-light p-5 mb-4">
+    <div class="columns">
+        <div class="column">
+            <div class="flex flex-space-between">
+                <button class="flex line-height" onClick="usePencil()"><img
+                        src="{% static 'images/pencil.png' %}" /></button>
+                <button class="flex  -height" onClick="useEraser()"><img
+                        src="{% static 'images/eraser.png' %}" /></button>
             </div>
-            <div class="column is-align-self-center has-text-centered">
-                <button class="button is-success is-rounded" onclick="transfer()">Generate</button>
+            <div class="box has-background-warning-dark has-text-centered">
+                <figure id="canvasContainer" class="image is-256x256">
+                </figure>
             </div>
-            <div class="column">
-                <div class="box has-background-warning-dark">
-                    <figure id="output" class="image is-256x256">
-                    </figure>
-                </div>
+            <div class="flex flex-space-between">
+                <button onClick="clearCanvas()">Clear</button>
+                <button onClick="getRandomOutput()">Random</button>
             </div>
         </div>
-        <script src="{% static 'js/index.js' %}"></script>
+        <div class="column is-align-self-center has-text-centered">
+            <button class="button is-success is-rounded" onclick="transferimage2image()">Generate</button>
+        </div>
+        <div class="column">
+            <div class="box has-background-warning-dark">
+                <figure id="output_from_image" class="image is-256x256">
+                </figure>
+            </div>
+        </div>
     </div>
-
-    <!-- image to image -->
-    <!-- <div class="container has-background-primary-light p-5">
-        <div class="columns">
-            <div class="column">
-                <div class="box has-background-warning-dark">
-                    <figure class="image is-256x256">
-                        <img src="{% static 'images/input1.png' %}" id="input">
-                    </figure>
-                </div>
-            </div>
-            <div class="column is-align-self-center has-text-centered">
-                <button class="button is-success is-rounded" onclick="generate()">Generate</button>
-            </div>
-            <div class="column">
-                <div class="box has-background-warning-dark">
-                    <figure class="image is-256x256" id="result">
-                        <img src="{% static 'images/result1.png' %}" style="opacity:0">
-                    </figure>
-                </div>
+    <script src="{% static 'js/index.js' %}"></script>
+</div>
+<!-- Text to image generation -->
+<div class="container has-background-primary-light p-5 mb-4">
+    <div class="columns">
+        <div class="column is-align-self-center has-text-centered">
+            <input id = 'intext' type="text" />
+        </div>
+        <div class="column is-align-self-center has-text-centered">
+            <button class="button is-success is-rounded" onclick="transfertext2image()">Generate</button>
+        </div>
+        <div class="column">
+            <div class="box has-background-warning-dark">
+                <figure id="output_from_text" class="image is-256x256">
+                </figure>
             </div>
         </div>
-    </div> -->
+    </div>
 </div>
 
 {% endblock content %}

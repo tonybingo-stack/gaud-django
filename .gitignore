@@ -4,6 +4,9 @@
 ### Django ###
 generator.h5
 /staticfiles
+test.png
+/dwitter/static/result
+/dwitter/static/upload
 *.log
 *.pot
 *.pyc

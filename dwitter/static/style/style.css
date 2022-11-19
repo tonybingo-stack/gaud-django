@@ -67,7 +67,7 @@ button:hover {
   margin: 0 20px;
 }
 
-.pokeball {
+/* .pokeball {
   animation: pokeball-spin infinite 5s linear;
   height: 60px;
   margin-left: 10px;
@@ -89,4 +89,4 @@ button:hover {
   100% {
     transform:rotate(0deg);
   }
-}
+} */

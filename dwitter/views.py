@@ -11,13 +11,10 @@ from dwitter.models import ImageProcess
 from dwitter.serializers import ImageSerializer
 
 from .models import Profile
-from .service import generate_images
+from .service import generatefromimage, generatefromtext
 
 def dashboard(request):
     return render(request, "dwitter/dashboard.html")
-# @csrf_exempt
-def hello(request):
-    return JsonResponse({'imageURL':"hello"})
 
 @api_view(['GET', 'POST', 'DELETE'])
 def imageAPI(request):
@@ -40,7 +37,26 @@ def imageAPI(request):
             else:
                 break
 
-        generate_images(imagen, count)
+        generatefromimage(imagen, count)
+        return JsonResponse({"imageURL":'./static/result/' + str(count) + '.png'})
+
+@api_view(['GET', 'POST', 'DELETE'])
+def textAPI(request):
+    
+    if request.method == "POST":
+        textData = request.body
+
+        # print(textData)
+        count = 0
+        while(True):
+            path = './dwitter/static/result/' + str(count) + '.png'
+            isFile = os.path.exists(path)
+            if isFile == True:
+                count = count + 1
+            else:
+                break
+
+        generatefromtext(textData, count)
         return JsonResponse({"imageURL":'./static/result/' + str(count) + '.png'})
 
 
