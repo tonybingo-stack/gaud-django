@@ -11,7 +11,7 @@ from dwitter.models import ImageProcess
 from dwitter.serializers import ImageSerializer
 
 from .models import Profile
-from .service import generatefromimage, generatefromtext
+from .service import generatefromimage
 
 def dashboard(request):
     return render(request, "dwitter/dashboard.html")
@@ -56,7 +56,7 @@ def textAPI(request):
             else:
                 break
 
-        generatefromtext(textData, count)
+        # generatefromtext(textData, count)
         return JsonResponse({"imageURL":'./static/result/' + str(count) + '.png'})
 
 
